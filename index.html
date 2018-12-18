@@ -1,0 +1,25 @@
+<html>  
+    <head>
+        <title>Punching Bag v.1</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    </head>
+    <body>
+        <div id="App">
+          <div id="bag" v-bind:class="{shake:shake,burst:finished}"></div>
+          <div id="health">
+              <div id="bar" v-bind:style="{width: `${health}%`}"></div>
+          </div>
+          <div id="per">{{getHealth}}</div>
+          <div id="controls">
+              <button v-bind:class="{btn:true,main:true,disabled:finished}"
+              :disabled="finished"
+              v-on:click="punchBag()">Punch</button>
+              <button class="btn danger"
+              v-on:click="resetHealth()">Reset</button>
+          </div>
+        </div>
+    </body>
+    <script src="app.js"></script>
+</html>
